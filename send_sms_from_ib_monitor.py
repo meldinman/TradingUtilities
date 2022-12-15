@@ -1,5 +1,5 @@
 import asyncio
-from trade_ideas.sms_utils import send_sms
+from sms_utils import send_sms
 import ib_insync as ibi
 import pandas as pd
 import datetime
