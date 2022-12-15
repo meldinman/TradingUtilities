@@ -28,7 +28,7 @@ def send_alert_text(alerted):
         
 def get_todays_file():
     today = date.today()
-    file_path = "alertlogging.Running Up.{}.csv".format(today.strftime("%Y%m%d"))
+    file_path = "yourfilepathhere.csv"
     try:
         alert_log = pd.read_csv(file_path)
     except FileNotFoundError:
