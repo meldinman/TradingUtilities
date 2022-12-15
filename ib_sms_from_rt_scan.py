@@ -5,7 +5,7 @@ import pandas as pd
 import datetime
 ibi.util.startLoop()
 
-POSITIONSIZE = 200
+POSITIONSIZE = 1000
 
 class App:
     '''
