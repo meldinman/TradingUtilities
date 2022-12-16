@@ -8,12 +8,12 @@ ibi.util.startLoop()
 POSITIONSIZE = 1000
 
 class App:
-    '''
+    """
     read a csv with symbols and prices
     subscribe to IB market data
     Get ticks / high and check if above limit price (short strategies)
     print alert to console and send sms if new alert
-    '''
+    """
     async def run(self):
         self.ib = ibi.IB()
         alerted_list = []
@@ -32,18 +32,18 @@ class App:
                     self.ib.waitOnUpdate()
     
     def get_alert_df(self):
-        '''
+        """
         read csv and return dataframe
-        '''
+        """
         alert_df = pd.read_csv("sample_scan.txt", usecols=["Signal","Symbol","LimitPrice"])
         return alert_df
     
     def get_contracts(self, alert_df):
-        '''
+        """
         get symbols from dataframe
         create IB contract object
         subscribe to contract
-        '''
+        """
         contracts = [
             ibi.Stock(symbol, 'SMART', 'USD')
                     for symbol in list(alert_df.Symbol)]
@@ -53,10 +53,10 @@ class App:
         return contracts
 
     def print_alerts(self, alerted_ticker, ticker, limit_price):
-        '''
+        """
         get alerted ticker details
         print strings to console and pass object for sms function
-        '''
+        """
         alert_string = "{} - High:{} Limit:{} Size: {}".format(alerted_ticker,ticker.high,limit_price, round(POSITIONSIZE/limit_price))
         print("Symbol {} alert at {}".format(alerted_ticker, datetime.datetime.now())) 
         print(alert_string)
