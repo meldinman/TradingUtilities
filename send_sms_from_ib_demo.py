@@ -87,8 +87,8 @@ class App:
             )
         )
         print(alert_string)
-        # send_sms(str(alert_string))
-        # win32api.MessageBox(0, str(limit_price), str(alerted_ticker), 0x00001000)
+        send_sms(str(alert_string))
+        win32api.MessageBox(0, str(ticker_df.LimitPrice), str(ticker_df.Symbol), 0x00001000)
         return alert_string
 
     def get_ticker_side(self, ticker_side):
